@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Get your Current Location
+    <p>Your Country</p>
+    <p id="country"></p>
+    <p>Your State</p>
+    <p id="state"></p>
+    <p>Your City</p>
+    <p id="city"></p>
+    <p>Temperature in that Position</p>
+    <p id="temp"></p>
+    <div id="map" style="height: 400px; width: 100%;"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+    <script src="weather.js"></script>
+</body>
+</html>
