@@ -87,6 +87,8 @@ function initMap() {
           try {
             const response = await fetch(url, options);
             const result = await response.json();
+            hideSpinner();
+
             console.log(result);
             document.getElementById('country').innerHTML = result.location.country
             document.getElementById('temp').innerHTML = result.current["temp_c"]
@@ -131,6 +133,15 @@ function initMap() {
   } else {
     console.error('Geolocation is not supported by this browser.');
   }
+  function showSpinner() {
+    document.getElementById('spinner').style.display = 'block';
+  }
+
+  // Function to hide the spinner
+  function hideSpinner() {
+    document.getElementById('spinner').style.display = 'none';
+  }
+  showSpinner();
   /*  var myLatLng = { lat: 22.497965, lng: 88.386693 };
 
     // Create a new map centered at the specified coordinates
