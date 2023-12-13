@@ -100,22 +100,40 @@ function initMap() {
               center: myLatLng,
               zoom: 20, // Adjust the zoom level as needed
             });
-
+            console.log(map)
             // Add a marker at the specified coordinates
-            google.maps.event.addListenerOnce(map, 'idle', function (){
-            var marker = new google.maps.Marker({
-              position: myLatLng,
-              map: map,
-              title: 'My Location',
+            google.maps.event.addListenerOnce(map, 'idle', function () {
+              var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'My Location',
+              });
             });
-          });
-          google.maps.event.addListenerOnce(map, 'idle', function (){
-            var marker2 = new google.maps.Marker({
-              position: myLatLng2,
-              map: map,
-              title: 'My Location',
+            google.maps.event.addListenerOnce(map, 'idle', function () {
+              var marker2 = new google.maps.Marker({
+                position: myLatLng2,
+                map: map,
+                title: 'My Location',
+              });
             });
-          });
+           /* var urlForInputAddress = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=Jadavpur";
+
+            fetch(urlForInputAddress)
+              .then(response => response.json())
+              .then(data => {
+                // Process the data
+                addressArr = data;
+                console.log("This is my address")
+                console.log(addressArr)
+              })
+              .catch(err => {
+                // Handle errors
+                console.log("Error:", err);
+              });*/
+
+
+
+
 
           } catch (error) {
             console.error(error);
@@ -157,4 +175,24 @@ function initMap() {
       title: 'My Location',
     });*/
 }
+function getDetailsOfInputPlace() {
+ // var city = "Jadavpur"; // Replace with the actual value you want to use
+ var city = document.getElementById('yourInputLocation').value;
+var urlForInputAddress = `https://nominatim.openstreetmap.org/search?format=json&limit=3&q=${city}`;
+
+
+  fetch(urlForInputAddress)
+    .then(response => response.json())
+    .then(data => {
+      // Process the data
+      addressArr = data;
+      console.log("This is my address");
+      console.log(addressArr);
+    })
+    .catch(err => {
+      // Handle errors
+      console.log("Error:", err);
+    });
+}
+
 
