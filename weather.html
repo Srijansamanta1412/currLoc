@@ -1,28 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    .spinner {
-        border: 4px solid rgba(0, 0, 0, 0.1);
-        border-top: 4px solid #3498db;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        animation: spin 1s linear infinite;
-        margin: 20px auto;
-      }
-  
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        .navbar{
+            height:3rem;
+            background-color: rgb(138, 235, 169);
+            /*justify-content: center;*/
+            align-items: center ;
+        }
+        .navbar ul{
+            list-style: none;
+            margin:2rem;
+        }
+        .navbar li a{
+            text-decoration: none;
+        }
+        @media(max-width:  780px){
+            .navbar{
+                background-color: blue;
+                font-size: 0.8rem;
+            }
+            nav{
+                display: none;
+            }
+        
+        }
     </style>
 </head>
+
 <body>
+    <nav class="d-flex navbar" style="display:flex; padding-right: 2rem;">
+        
+        <li style="list-style: none;">
+            <a href="">Home</a>
+        </li>
+        <li>
+            <a href="">Home</a>
+        </li>
+        <li>
+            <a href="">Home</a>
+        </li>
+        <li>
+            <a href="">Home</a>
+        </li>
+        
+        <div style="float: right; display: flex; margin-left: auto;">
+            <div>Search Your Location </div>
+            <input type="text">
+        </div>
+    </nav>
     Get your Current Location and Weather of that Place
+    
     <p>Your Country</p>
     <p id="country"></p>
     <p>Your State</p>
@@ -36,8 +87,11 @@
     Choose The Place You Want to Visit
     <input type="text" id="yourInputLocation">
     <button onclick="getDetailsOfInputPlace()">Search</button>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcBBGbsRdmXiXegDR2sw27AxGv36IwcTc&callback=initMap" async defer></script>
-
     <script src="weather.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcBBGbsRdmXiXegDR2sw27AxGv36IwcTc&callback=initMap"
+        async defer></script>
+
+    
 </body>
+
 </html>
